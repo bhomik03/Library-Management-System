@@ -1,0 +1,6 @@
+{
+  "name": "Athena College Library Management System",
+  "description": "A modern, professional Library Management System for colleges with real-time book tracking, student loan management, automated fine calculation, and institutional reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
