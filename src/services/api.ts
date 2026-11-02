@@ -18,6 +18,15 @@ async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
     }
   });
 
+  const contentType = res.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const rawText = await res.text();
+    if (!res.ok) {
+      throw new Error(`API error (${res.status}): ${rawText.slice(0, 120)}`);
+    }
+    throw new Error(`Expected JSON but received ${contentType || 'HTML/text'} from ${url}.`);
+  }
+
   const data = await res.json();
   if (!res.ok) {
     throw new Error(data.error || 'Server request failed');

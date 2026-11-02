@@ -115,7 +115,8 @@ export interface LibraryData {
   settings: SystemSettings;
 }
 
-const DATA_DIR = path.resolve(process.cwd(), 'data');
+const isVercel = !!process.env.VERCEL;
+const DATA_DIR = isVercel ? path.join('/tmp', 'data') : path.resolve(process.cwd(), 'data');
 const DATA_FILE = path.join(DATA_DIR, 'library_db.json');
 
 function getInitialData(): LibraryData {

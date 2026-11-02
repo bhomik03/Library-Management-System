@@ -128,8 +128,8 @@ mysql -u root -p < database/schema.sql
 - Node.js (v18 or v20+)
 - npm or yarn
 
-### Steps to Run
-1. Clone the repository and install dependencies:
+### Local Run
+1. Install dependencies:
 ```bash
 npm install
 ```
@@ -143,6 +143,15 @@ npm run dev
 ```
 http://localhost:3000
 ```
+
+### Deploying on Vercel
+The repository is fully configured for zero-configuration Vercel deployment:
+- `vercel.json` maps `/api/*` to the serverless entrypoint in `api/index.ts` and routes all frontend paths to `dist/index.html`.
+- To deploy via Vercel CLI:
+```bash
+vercel
+```
+- Or push this repository to GitHub and import it into your Vercel Dashboard (Framework Preset: **Vite**, Build Command: `npm run build`, Output Directory: `dist`).
 
 4. Pre-Configured Demo Accounts:
 - **Admin**: Username: `admin` | Password: `admin123`
